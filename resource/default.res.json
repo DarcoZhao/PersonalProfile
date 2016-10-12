@@ -1,0 +1,100 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,Cat_jpg,Icon_png,Mus_png,Rain_jpeg,Sky_jpeg,Shrimp_jpg,8_JPEG,1_jpg,2_jpg,3_jpg,4_jpg,5_jpg,6_jpg,7_jpg,Color_jpg,AniS_jpg,Green_jpg",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "Cat_jpg",
+			"type": "image",
+			"url": "assets/Cat.jpg"
+		},
+		{
+			"name": "Icon_png",
+			"type": "image",
+			"url": "assets/Icon.png"
+		},
+		{
+			"name": "Mus_png",
+			"type": "image",
+			"url": "assets/Mus.png"
+		},
+		{
+			"name": "Rain_jpeg",
+			"type": "image",
+			"url": "assets/Rain.jpeg"
+		},
+		{
+			"name": "Sky_jpeg",
+			"type": "image",
+			"url": "assets/Sky.jpeg"
+		},
+		{
+			"name": "Shrimp_jpg",
+			"type": "image",
+			"url": "assets/Shrimp.jpg"
+		},
+		{
+			"name": "8_JPEG",
+			"type": "bin",
+			"url": "assets/8.JPEG"
+		},
+		{
+			"name": "1_jpg",
+			"type": "image",
+			"url": "assets/1.jpg"
+		},
+		{
+			"name": "2_jpg",
+			"type": "image",
+			"url": "assets/2.jpg"
+		},
+		{
+			"name": "3_jpg",
+			"type": "image",
+			"url": "assets/3.jpg"
+		},
+		{
+			"name": "4_jpg",
+			"type": "image",
+			"url": "assets/4.jpg"
+		},
+		{
+			"name": "5_jpg",
+			"type": "image",
+			"url": "assets/5.jpg"
+		},
+		{
+			"name": "6_jpg",
+			"type": "image",
+			"url": "assets/6.jpg"
+		},
+		{
+			"name": "7_jpg",
+			"type": "image",
+			"url": "assets/7.jpg"
+		},
+		{
+			"name": "Color_jpg",
+			"type": "image",
+			"url": "assets/Color.jpg"
+		},
+		{
+			"name": "AniS_jpg",
+			"type": "image",
+			"url": "assets/AniS.jpg"
+		},
+		{
+			"name": "Green_jpg",
+			"type": "image",
+			"url": "assets/Green.jpg"
+		}
+	]
+}
