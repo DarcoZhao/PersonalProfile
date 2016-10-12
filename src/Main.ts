@@ -86,7 +86,7 @@ class Music extends egret.DisplayObjectContainer {
     private init(): void {
         var isplay:boolean=false;
         //play   
-        this.touchEnabled = true;                                         //恩
+        this.touchEnabled = true;                                        
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             if(isplay==false){  this.play(); isplay=true;}
            else if(isplay==true){  this.stop();  isplay=false; }
@@ -185,7 +185,6 @@ class Main extends egret.DisplayObjectContainer {
      * Create a game scene
      */
 
-    //换页的方法是在明白的情况下部分抄袭了同学的（同学已知）
     private page1;   
     private page2;
     private stageH;
@@ -270,23 +269,6 @@ class Main extends egret.DisplayObjectContainer {
                     to({alpha: 1},800,egret.Ease.sineIn);
 
 
-
-/*
-        var Text0 = new egret.TextField();
-        Text0.textColor = 0x000000;
-        Text0.width = this.stageW - 172;
-        Text0.fontFamily = "KaiTi";
-        Text0.textAlign = "center";
-        Text0.text = "自我介绍有什么意思还是来聊聊食物好吗> <";
-        Text0.size = 32;
-        Text0.x = 90;
-        Text0.y = 800;
-        Text0.alpha = 0;
-        page1.addChild(Text0);
-        //egret.Tween.get(Text0).to({y: 800},400,egret.Ease.sineIn);
-*/
-//区别？显示不出来？？
-
         var line1 = new egret.Shape();
         line1.graphics.lineStyle(1,0x333300);
         line1.graphics.moveTo(0,18);
@@ -323,18 +305,19 @@ class Main extends egret.DisplayObjectContainer {
         colorLabel2.alpha = 0;
         colorLabel2.width = this.stageW;
         colorLabel2.textAlign = "center";
-        colorLabel2.text = "Go On";    //不见了？？
+        colorLabel2.text = "Slide to Continue";    
         colorLabel2.size = 50;
-        colorLabel2.y = 1050;
+        colorLabel2.x = 10;
+        colorLabel2.y = 1600;
         page1.addChild(colorLabel2);
 
-        egret.Tween.get(colorLabel2).to({scale:3},10000,egret.Ease.sineIn);
+        egret.Tween.get(colorLabel2).to({y: 950, alpha: 1},1000,egret.Ease.sineIn);
 
        
 
         var textfield = new egret.TextField();
-        //page01.addChild(textfield);
-        textfield.alpha = 0;
+        //page1.addChild(textfield);
+        textfield.alpha = 1;
         textfield.width = this.stageW - 172;
         textfield.textAlign = egret.HorizontalAlign.CENTER;
         textfield.size = 24;
