@@ -1,100 +1,105 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,Cat_jpg,Icon_png,Mus_png,Rain_jpeg,Sky_jpeg,Shrimp_jpg,8_JPEG,1_jpg,2_jpg,3_jpg,4_jpg,5_jpg,6_jpg,7_jpg,Color_jpg,AniS_jpg,Green_jpg",
+			"keys": "description_json,Icon_png,Mus_png,Shrimp_jpg,Color_jpg,AniS_jpg,Green_jpg,Ref_wav",
 			"name": "preload"
 		}
 	],
 	"resources": [
 		{
-			"name": "description_json",
+			"url": "config/description.json",
 			"type": "json",
-			"url": "config/description.json"
+			"name": "description_json"
 		},
 		{
-			"name": "Cat_jpg",
+			"url": "assets/Cat.jpg",
 			"type": "image",
-			"url": "assets/Cat.jpg"
+			"name": "Cat_jpg"
 		},
 		{
-			"name": "Icon_png",
+			"url": "assets/Icon.png",
 			"type": "image",
-			"url": "assets/Icon.png"
+			"name": "Icon_png"
 		},
 		{
-			"name": "Mus_png",
+			"url": "assets/Mus.png",
 			"type": "image",
-			"url": "assets/Mus.png"
+			"name": "Mus_png"
 		},
 		{
-			"name": "Rain_jpeg",
+			"url": "assets/Rain.jpeg",
 			"type": "image",
-			"url": "assets/Rain.jpeg"
+			"name": "Rain_jpeg"
 		},
 		{
-			"name": "Sky_jpeg",
+			"url": "assets/Sky.jpeg",
 			"type": "image",
-			"url": "assets/Sky.jpeg"
+			"name": "Sky_jpeg"
 		},
 		{
-			"name": "Shrimp_jpg",
+			"url": "assets/Shrimp.jpg",
 			"type": "image",
-			"url": "assets/Shrimp.jpg"
+			"name": "Shrimp_jpg"
 		},
 		{
-			"name": "8_JPEG",
+			"url": "assets/8.JPEG",
 			"type": "bin",
-			"url": "assets/8.JPEG"
+			"name": "8_JPEG"
 		},
 		{
-			"name": "1_jpg",
+			"url": "assets/1.jpg",
 			"type": "image",
-			"url": "assets/1.jpg"
+			"name": "1_jpg"
 		},
 		{
-			"name": "2_jpg",
+			"url": "assets/2.jpg",
 			"type": "image",
-			"url": "assets/2.jpg"
+			"name": "2_jpg"
 		},
 		{
-			"name": "3_jpg",
+			"url": "assets/3.jpg",
 			"type": "image",
-			"url": "assets/3.jpg"
+			"name": "3_jpg"
 		},
 		{
-			"name": "4_jpg",
+			"url": "assets/4.jpg",
 			"type": "image",
-			"url": "assets/4.jpg"
+			"name": "4_jpg"
 		},
 		{
-			"name": "5_jpg",
+			"url": "assets/5.jpg",
 			"type": "image",
-			"url": "assets/5.jpg"
+			"name": "5_jpg"
 		},
 		{
-			"name": "6_jpg",
+			"url": "assets/6.jpg",
 			"type": "image",
-			"url": "assets/6.jpg"
+			"name": "6_jpg"
 		},
 		{
-			"name": "7_jpg",
+			"url": "assets/7.jpg",
 			"type": "image",
-			"url": "assets/7.jpg"
+			"name": "7_jpg"
 		},
 		{
-			"name": "Color_jpg",
+			"url": "assets/Color.jpg",
 			"type": "image",
-			"url": "assets/Color.jpg"
+			"name": "Color_jpg"
 		},
 		{
-			"name": "AniS_jpg",
+			"url": "assets/AniS.jpg",
 			"type": "image",
-			"url": "assets/AniS.jpg"
+			"name": "AniS_jpg"
 		},
 		{
-			"name": "Green_jpg",
+			"url": "assets/Green.jpg",
 			"type": "image",
-			"url": "assets/Green.jpg"
+			"name": "Green_jpg"
+		},
+		{
+			"url": "assets/Ref.wav",
+			"type": "sound",
+			"name": "Ref_wav"
 		}
 	]
 }

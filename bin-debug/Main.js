@@ -26,6 +26,76 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+var Music = (function (_super) {
+    __extends(Music, _super);
+    function Music() {
+        _super.call(this);
+        this._touchStatus = false;
+        this._pauseTime = 0;
+        this.stageW = 640;
+        this.xuanzhuan = 0;
+        this._nScaleBase = 0;
+        this.isplay = 0;
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+    var d = __define,c=Music,p=c.prototype;
+    p.onAddToStage = function (event) {
+        this.loadSound();
+    };
+    //加载
+    p.loadSound = function () {
+        var sound = this._sound = new egret.Sound();
+        ;
+        //sound 加载完成监听
+        sound.addEventListener(egret.Event.COMPLETE, function (e) {
+            this.init();
+        }, this);
+        sound.load("resource/assets/Ref.wav");
+    };
+    //播放
+    p.play = function () {
+        //sound 播放会返回一个 SoundChannel 对象，暂停、音量等操作请控制此对象
+        this._channel = this._sound.play(this._pauseTime, 1);
+        this._channel.addEventListener(egret.Event.SOUND_COMPLETE, this.onComplete, this);
+        this.addEventListener(egret.Event.ENTER_FRAME, this.onTimeUpdate, this);
+        this.isplay = 1;
+    };
+    //停止
+    p.stop = function () {
+        if (this._channel) {
+            this._channel.removeEventListener(egret.Event.SOUND_COMPLETE, this.onComplete, this);
+            this.removeEventListener(egret.Event.ENTER_FRAME, this.onTimeUpdate, this);
+            this._channel.stop();
+            this._channel = null;
+            this.isplay = 0;
+        }
+    };
+    //播放完成
+    p.onComplete = function (e) {
+        this.stop();
+    };
+    //更新进度
+    p.onTimeUpdate = function (e) {
+        var position = this._channel ? this._channel.position : 0;
+    };
+    p.init = function () {
+        var isplay = false;
+        //play   
+        this.touchEnabled = true; //恩
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            if (isplay == false) {
+                this.play();
+                isplay = true;
+            }
+            else if (isplay == true) {
+                this.stop();
+                isplay = false;
+            }
+        }, this);
+    };
+    return Music;
+}(egret.DisplayObjectContainer));
+egret.registerClass(Music,'Music');
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
@@ -153,7 +223,8 @@ var Main = (function (_super) {
         colorLabel0.alpha = 0.5;
         page1.addChild(colorLabel0);
         egret.Tween.get(colorLabel0).to({ alpha: 1 }, 400, egret.Ease.sineIn).wait(2000).
-            to({ alpha: 0 }, 800, egret.Ease.sineIn);
+            to({ alpha: 0 }, 800, egret.Ease.sineIn).wait(2000).
+            to({ alpha: 1 }, 800, egret.Ease.sineIn);
         /*
                 var Text0 = new egret.TextField();
                 Text0.textColor = 0x000000;
@@ -215,6 +286,21 @@ var Main = (function (_super) {
         textfield.x = 100;
         textfield.y = 135;
         this.textfield = textfield;
+        var Singer = this.createBitmapByName("Mus_png");
+        Singer.width = Singer.height = 120;
+        var Song = new Music();
+        page1.addChild(Song);
+        Song.addChild(Singer);
+        Song.x = 500;
+        Song.y = 45;
+        Song.addEventListener(egret.Event.ENTER_FRAME, function (evt) {
+            switch (Song.isplay) {
+                case 1:
+                    break;
+                case 0:
+                    break;
+            }
+        }, this);
         //Page2
         var page2 = new egret.DisplayObjectContainer;
         page2.y = this.stageH;
@@ -243,18 +329,18 @@ var Main = (function (_super) {
         pic1.x = stageW / 2 - pic1.width / 2;
         pic1.y = stageH / 2 - 380;
         var Text1 = new egret.TextField();
-        Text1.textColor = 0x000000;
+        Text1.textColor = 0x333333;
         Text1.width = this.stageW - 172;
         Text1.textAlign = "center";
         Text1.fontFamily = "KaiTi";
-        Text1.text = "蟹粉豆腐";
+        Text1.text = "Click";
         Text1.size = 60;
         Text1.x = 100;
         Text1.y = 55;
         page2.addChild(Text1);
         Text1.touchEnabled = true;
         Text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function (evt) {
-            Text1.textColor = 0xC0C0C0;
+            Text1.text = "蟹粉豆腐", Text1.textColor = 0x990000;
         }, this);
         var Text2 = new egret.TextField();
         Text2.textColor = 0x000000;

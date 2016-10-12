@@ -27,6 +27,74 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
+class Music extends egret.DisplayObjectContainer {
+    private _touchStatus:boolean = false;   
+    private _pauseTime: number = 0;           
+    private stageW=640;
+    private xuanzhuan:number=0;
+    private _sound: egret.Sound;
+    public _nScaleBase=0;
+    public isplay=0;
+    private _channel: egret.SoundChannel;
+    constructor() {
+        super();
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+    private onAddToStage(event: egret.Event) {
+        this.loadSound();
+      
+    }
+    //加载
+    private loadSound(): void {
+        var sound: egret.Sound = this._sound = new egret.Sound();;
+        //sound 加载完成监听
+        sound.addEventListener(egret.Event.COMPLETE, function (e: egret.Event) {
+            this.init();
+        }, this);
+
+        sound.load("resource/assets/Ref.wav");
+        
+    }
+    //播放
+    private play():void {
+        //sound 播放会返回一个 SoundChannel 对象，暂停、音量等操作请控制此对象
+        this._channel = this._sound.play(this._pauseTime, 1);
+        this._channel.addEventListener(egret.Event.SOUND_COMPLETE, this.onComplete, this); 
+        this.addEventListener(egret.Event.ENTER_FRAME, this.onTimeUpdate, this);
+        this.isplay=1;
+    }
+    //停止
+    private stop():void {
+        if (this._channel) {
+            this._channel.removeEventListener(egret.Event.SOUND_COMPLETE, this.onComplete, this);
+            this.removeEventListener(egret.Event.ENTER_FRAME, this.onTimeUpdate, this);    
+            this._channel.stop();
+            this._channel = null;
+            this.isplay=0;
+           
+        }
+    }
+    //播放完成
+        private onComplete(e:egret.Event):void {
+            this.stop();
+    }
+    //更新进度
+        private onTimeUpdate(e:egret.Event):void {
+            var position:number = this._channel ? this._channel.position : 0;   
+    }
+   
+    private init(): void {
+        var isplay:boolean=false;
+        //play   
+        this.touchEnabled = true;                                         //恩
+        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            if(isplay==false){  this.play(); isplay=true;}
+           else if(isplay==true){  this.stop();  isplay=false; }
+        }, this);
+    }
+}
+
+
 class Main extends egret.DisplayObjectContainer {
 
     /**
@@ -141,6 +209,9 @@ class Main extends egret.DisplayObjectContainer {
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.startScroll,this);
         this.addEventListener(egret.TouchEvent.TOUCH_END,this.stopScroll,this);
+
+
+        
 
 //Page1
         var page1 = new egret.DisplayObjectContainer;   
@@ -271,6 +342,24 @@ class Main extends egret.DisplayObjectContainer {
         textfield.x = 100;
         textfield.y = 135;
         this.textfield = textfield;
+
+
+
+        var Singer:egret.Bitmap= this.createBitmapByName("Mus_png");
+        Singer.width=Singer.height=120;
+        var Song :Music=new Music(); 
+        page1.addChild(Song);
+        Song.addChild(Singer);
+        Song.x=500;
+        Song.y=45;
+        Song.addEventListener( egret.Event.ENTER_FRAME, ( evt:egret.Event )=>{      
+            switch (Song.isplay ) {
+                case 1:       
+                    break;
+                case 0:
+                    break;
+            }
+        }, this );
 
 
 //Page2
