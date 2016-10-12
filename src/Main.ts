@@ -195,7 +195,8 @@ class Main extends egret.DisplayObjectContainer {
         colorLabel0.alpha = 0.5;
         page1.addChild(colorLabel0);
         egret.Tween.get(colorLabel0).to({alpha: 1},400,egret.Ease.sineIn).wait(2000).
-                    to({alpha: 0},800,egret.Ease.sineIn);
+                    to({alpha: 0},800,egret.Ease.sineIn).wait(2000).
+                    to({alpha: 1},800,egret.Ease.sineIn);
 
 
 
@@ -306,20 +307,21 @@ class Main extends egret.DisplayObjectContainer {
 
 
         var Text1 = new egret.TextField();
-        Text1.textColor = 0x000000;
+        Text1.textColor = 0x333333;
         Text1.width = this.stageW - 172;
         Text1.textAlign = "center";
         Text1.fontFamily = "KaiTi";
-        Text1.text = "蟹粉豆腐";
+        Text1.text = "Click";
         Text1.size = 60;
         Text1.x = 100;
         Text1.y = 55;
         page2.addChild(Text1);
         
         Text1.touchEnabled = true;
-        Text1.addEventListener( egret.TouchEvent.TOUCH_TAP, function( evt:egret.TouchEvent ):void{    
-            Text1.textColor = 0xC0C0C0; 
-        }, this );
+        Text1.addEventListener( egret.TouchEvent.TOUCH_TAP, 
+                                function( evt:egret.TouchEvent ):void{    
+                                Text1.text = "蟹粉豆腐", Text1.textColor = 0x990000; 
+                                }, this );
 
         var Text2 = new egret.TextField();
         Text2.textColor = 0x000000;
