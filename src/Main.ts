@@ -305,13 +305,13 @@ class Main extends egret.DisplayObjectContainer {
         colorLabel2.alpha = 0;
         colorLabel2.width = this.stageW;
         colorLabel2.textAlign = "center";
-        colorLabel2.text = "Slide to Continue";    
-        colorLabel2.size = 50;
+        colorLabel2.text = "slide down to Continue";    
+        colorLabel2.size = 25;
         colorLabel2.x = 10;
         colorLabel2.y = 1600;
         page1.addChild(colorLabel2);
 
-        egret.Tween.get(colorLabel2).to({y: 950, alpha: 1},1000,egret.Ease.sineIn);
+        egret.Tween.get(colorLabel2).to({y: 1090, alpha: 1},3000,egret.Ease.sineIn);
 
        
 
@@ -335,6 +335,9 @@ class Main extends egret.DisplayObjectContainer {
         Song.addChild(Singer);
         Song.x=500;
         Song.y=45;
+
+        //egret.Tween.get(Singer).to({scale: 2},800).wait(2000).to({scale: 0.5},800);
+
         Song.addEventListener( egret.Event.ENTER_FRAME, ( evt:egret.Event )=>{      
             switch (Song.isplay ) {
                 case 1:       
